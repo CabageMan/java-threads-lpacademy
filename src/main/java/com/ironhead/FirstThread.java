@@ -11,7 +11,7 @@ public class FirstThread extends Thread {
       Thread.sleep(3000);
     } catch (InterruptedException e) {
       System.out.println(ANSI_BLUE + "Another thread woke me up");
-      return;
+      return; // Immediately interrupt the thread.
     }
     System.out.println(ANSI_BLUE + "Three seconds have passed and I'm awake");
   }
