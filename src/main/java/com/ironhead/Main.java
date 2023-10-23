@@ -55,6 +55,7 @@ public class Main {
     */
 
     // Check threads with variables.
+    /*
     Countdown countdown = new Countdown();
 
     CountdownThread thread1 = new CountdownThread(countdown);
@@ -64,6 +65,11 @@ public class Main {
 
     thread1.start();
     thread2.start();
+     */
+
+    Message message = new Message();
+    (new Thread(new Writer(message))).start();
+    (new Thread(new Reader(message))).start();
   }
 
   private static void drawDivider(int numberOfLines) {
