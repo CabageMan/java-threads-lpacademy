@@ -1,6 +1,12 @@
 package com.ironhead;
 
-import static com.ironhead.ThreadColor.*;
+import com.ironhead.deadlocks_wait_notify.Message;
+import com.ironhead.deadlocks_wait_notify.Reader;
+import com.ironhead.deadlocks_wait_notify.Writer;
+import com.ironhead.thread_variables.Countdown;
+import com.ironhead.thread_variables.CountdownThread;
+
+import static com.ironhead.thread_color.ThreadColor.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -55,7 +61,7 @@ public class Main {
     */
 
     // Check threads with variables.
-    /*
+
     Countdown countdown = new Countdown();
 
     CountdownThread thread1 = new CountdownThread(countdown);
@@ -65,7 +71,7 @@ public class Main {
 
     thread1.start();
     thread2.start();
-     */
+
 
     Message message = new Message();
     (new Thread(new Writer(message))).start();
