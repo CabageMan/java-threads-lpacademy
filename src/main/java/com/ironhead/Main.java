@@ -1,12 +1,18 @@
 package com.ironhead;
 
+import com.ironhead.constants.ThreadColor;
 import com.ironhead.deadlocks_wait_notify.Message;
 import com.ironhead.deadlocks_wait_notify.Reader;
 import com.ironhead.deadlocks_wait_notify.Writer;
+import com.ironhead.producer_and_consumer.MyConsumer;
+import com.ironhead.producer_and_consumer.MyProducer;
 import com.ironhead.thread_variables.Countdown;
 import com.ironhead.thread_variables.CountdownThread;
 
-import static com.ironhead.thread_color.ThreadColor.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.ironhead.constants.ThreadColor.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -60,6 +66,7 @@ public class Main {
     System.out.println(ANSI_PURPLE + "Another message from the Main thread");
     */
 
+    /*
     // Check threads with variables.
 
     Countdown countdown = new Countdown();
@@ -76,6 +83,17 @@ public class Main {
     Message message = new Message();
     (new Thread(new Writer(message))).start();
     (new Thread(new Reader(message))).start();
+     */
+
+    // Producer and Consumer
+    List<String> buffer = new ArrayList<>();
+    MyProducer producer = new MyProducer(buffer, ANSI_YELLOW);
+    MyConsumer consumer1 = new MyConsumer(buffer, ANSI_PURPLE);
+    MyConsumer consumer2 = new MyConsumer(buffer, ANSI_GREEN);
+
+    new Thread(producer).start();
+    new Thread(consumer1).start();
+    new Thread(consumer2).start();
   }
 
   private static void drawDivider(int numberOfLines) {
