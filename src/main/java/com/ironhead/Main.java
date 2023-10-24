@@ -11,6 +11,7 @@ import com.ironhead.thread_variables.CountdownThread;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 import static com.ironhead.constants.ThreadColor.*;
 
@@ -87,9 +88,10 @@ public class Main {
 
     // Producer and Consumer
     List<String> buffer = new ArrayList<>();
-    MyProducer producer = new MyProducer(buffer, ANSI_YELLOW);
-    MyConsumer consumer1 = new MyConsumer(buffer, ANSI_PURPLE);
-    MyConsumer consumer2 = new MyConsumer(buffer, ANSI_GREEN);
+    ReentrantLock bufferLock = new ReentrantLock();
+    MyProducer producer = new MyProducer(buffer, ANSI_YELLOW, bufferLock);
+    MyConsumer consumer1 = new MyConsumer(buffer, ANSI_PURPLE, bufferLock);
+    MyConsumer consumer2 = new MyConsumer(buffer, ANSI_GREEN, bufferLock);
 
     new Thread(producer).start();
     new Thread(consumer1).start();
