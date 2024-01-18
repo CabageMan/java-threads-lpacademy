@@ -4,7 +4,7 @@ import static com.ironhead.constants.ThreadColor.*;
 
 public class Countdown {
   private int i;
-  /* First way to synchronous
+  //First way to synchronise
   public synchronized void doCountdown() {
     String color;
     String threadName = Thread.currentThread().getName();
@@ -24,8 +24,8 @@ public class Countdown {
       System.out.println(color + threadName + ": i=" + i);
     }
   }
-   */
 
+  /*
   public void doCountdown() {
     String color;
     String threadName = Thread.currentThread().getName();
@@ -47,4 +47,5 @@ public class Countdown {
       }
     }
   }
+   */
 }

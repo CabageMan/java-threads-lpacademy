@@ -6,6 +6,8 @@ public class FirstRunnable implements Runnable {
   public static String logColor = ANSI_RED;
   @Override
   public void run() {
-    System.out.println(logColor + "We are in FirstRunnable implementation of run()");
+    System.out.println(logColor + "We are in " +
+            Thread.currentThread().getName() +
+            ": FirstRunnable implementation of run()");
   }
 }

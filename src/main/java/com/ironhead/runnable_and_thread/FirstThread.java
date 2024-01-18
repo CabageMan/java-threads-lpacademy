@@ -12,10 +12,12 @@ public class FirstThread extends Thread {
     try {
       Thread.sleep(DELAY);
     } catch (InterruptedException e) {
-      System.out.println(logColor + "The thread " + currentThread().getName() + " is interrupted.");
+      System.out.println(logColor + "The thread " +
+              currentThread().getName() + " is interrupted.");
       return; // Immediately interrupt the thread.
     }
-    System.out.println(logColor + DELAY + " milliseconds have passed and " + currentThread().getName() + " is awake");
+    System.out.println(logColor + DELAY + " milliseconds have passed and " +
+            currentThread().getName() + " is awake");
   }
 }
 

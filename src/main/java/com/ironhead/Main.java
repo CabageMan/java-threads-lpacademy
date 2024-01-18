@@ -23,64 +23,75 @@ public class Main {
   public static String anonymousColor = ANSI_GREEN;
 
   public static void main(String[] args) {
+
     /*
-    System.out.println(mainColor + "We are in the Main thread");
+    System.out.println(mainColor + "We are in the " +
+            Thread.currentThread().getName() + " thread.");
 
     // Extending Thread class.
     Thread firstThread = new FirstThread();
-    firstThread.setName("- Extended Thread -");
+    firstThread.setName("-Extended Thread-");
     firstThread.start();
 
     // Creating of anonymous class thread.
     new Thread() {
       public void run() {
-        System.out.println(anonymousColor + "We are in the anonymous class thread.");
+        System.out.println(anonymousColor + "We are in the anonymous " +
+                Thread.currentThread().getName() + " thread.");
       }
     }.start();
 
     // Implementing Runnable interface
     Thread implementedRunnableThread = new Thread(new FirstRunnable());
+    implementedRunnableThread.setName("-Implemented Runnable-");
     implementedRunnableThread.start();
 
     // Another ways to declare using anonymous class:
     // This does the same result by calling super.run()
-    Thread anonymousRunnableThread = new Thread(new FirstRunnable() {
+    new Thread(new FirstRunnable() {
       @Override
       public void run() {
         super.run();
       }
-    });
-    anonymousRunnableThread.start();
+    }).start();
 
     // Anonymous overridden:
-    Thread overridedRunnableThread = new Thread(new FirstRunnable() {
+    Thread overriddenRunnableThread = new Thread(new FirstRunnable() {
       @Override
       public void run() {
-        System.out.println(FirstRunnable.logColor + "We are in the anonymous class implementation of FirstRunnable run()");
+        System.out.println(FirstRunnable.logColor +
+                "We are in the anonymous " +
+                Thread.currentThread().getName() +
+                ": overridden implementation of FirstRunnable run()");
 
         try {
           firstThread.join(4000); // Set time out for thread execution
 //          firstThread.join();
-          System.out.println(FirstRunnable.logColor + "firstThread terminated, or timed, so I'm running :)");
+          System.out.println(FirstRunnable.logColor + firstThread.getName() +
+                  " terminated, or timed, so " +
+                  Thread.currentThread().getName() + " is running :)");
           drawDivider(1);
         } catch (InterruptedException e) {
-          System.out.println(FirstRunnable.logColor + "I couldn't wait after all. I was interrupted.");
+          System.out.println(FirstRunnable.logColor +
+                  Thread.currentThread().getName() +
+                  " couldn't wait after all. It was interrupted.");
         }
       }
     });
-
-    overridedRunnableThread.start();
+    overriddenRunnableThread.setName("-Overridden Runnable-");
+    overriddenRunnableThread.start();
 
 //    firstThread.interrupt();
 
     // If color is not defined, it uses a color from the last statement.
-    System.out.println(mainColor + "Another message from the Main thread");
-    */
+    System.out.println(mainColor + "Another message from the " +
+            Thread.currentThread().getName() + " thread");
+     */
 
     // --------------------------------------------------------------------
+    // Checking threads with variables.
 
-    // Check threads with variables.
-
+    /*
     Countdown countdown = new Countdown();
 
     CountdownThread thread1 = new CountdownThread(countdown);
@@ -95,7 +106,7 @@ public class Main {
     Message message = new Message();
     (new Thread(new Writer(message))).start();
     (new Thread(new Reader(message))).start();
-     
+     */
 
     /*
     // Producer and Consumer
