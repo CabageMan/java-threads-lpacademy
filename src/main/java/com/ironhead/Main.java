@@ -111,8 +111,8 @@ public class Main {
     // --------------------------------------------------------------------
     // Deadlocks with notify.
     Message message = new Message();
-//    (new Thread(new Writer(message))).start();
-//    (new Thread(new Reader(message))).start();
+    (new Thread(new Writer(message))).start();
+    (new Thread(new Reader(message))).start();
 
     /*
     // Producer and Consumer
