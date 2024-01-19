@@ -1,7 +1,4 @@
 package com.ironhead.thread_variables;
-
-import com.ironhead.thread_variables.Countdown;
-
 public class CountdownThread extends Thread {
   private Countdown countdown;
 

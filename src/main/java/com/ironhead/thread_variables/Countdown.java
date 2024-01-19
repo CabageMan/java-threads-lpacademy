@@ -1,20 +1,29 @@
 package com.ironhead.thread_variables;
 
+import com.ironhead.constants.KeyWords;
+
 import static com.ironhead.constants.ThreadColor.*;
+import static com.ironhead.constants.KeyWords.*;
 
 public class Countdown {
+
   private int i;
-  //First way to synchronise
+
+  /*
+  // First way to synchronize (method)
   public synchronized void doCountdown() {
     String color;
     String threadName = Thread.currentThread().getName();
 
     switch (threadName) {
-      case "Thread 1":
+      case KeyWords.THREAD_NAME_1:
         color = ANSI_CYAN;
         break;
-      case "Thread 2":
+      case KeyWords.THREAD_NAME_2:
         color = ANSI_PURPLE;
+        break;
+      case KeyWords.THREAD_NAME_3:
+        color = ANSI_BLUE;
         break;
       default:
         color = ANSI_GREEN;
@@ -24,18 +33,22 @@ public class Countdown {
       System.out.println(color + threadName + ": i=" + i);
     }
   }
+   */
 
-  /*
+  // Another way to synchronise (code block).
   public void doCountdown() {
     String color;
     String threadName = Thread.currentThread().getName();
 
     switch (threadName) {
-      case "Thread 1":
+      case KeyWords.THREAD_NAME_1:
         color = ANSI_CYAN;
         break;
-      case "Thread 2":
+      case KeyWords.THREAD_NAME_2:
         color = ANSI_PURPLE;
+        break;
+      case KeyWords.THREAD_NAME_3:
+        color = ANSI_BLUE;
         break;
       default:
         color = ANSI_GREEN;
@@ -47,5 +60,4 @@ public class Countdown {
       }
     }
   }
-   */
 }

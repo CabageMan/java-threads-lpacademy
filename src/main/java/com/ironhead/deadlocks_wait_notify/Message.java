@@ -6,27 +6,27 @@ public class Message {
 
   public synchronized String read() {
     while (empty) {
-      try {
-        wait();
-      } catch (InterruptedException e) {
-        System.out.println("Message read interrupt exception: " + e);
-      }
+//      try {
+//        wait();
+//      } catch (InterruptedException e) {
+//        System.out.println("Message read interrupt exception: " + e);
+//      }
     }
     empty = true;
-    notifyAll();
+//    notifyAll();
     return message;
   }
 
   public synchronized void write(String message) {
     while (!empty) {
-      try {
-        wait();
-      } catch (InterruptedException e) {
-        System.out.println("Message write interrupt exception: " + e);
-      }
+//      try {
+//        wait();
+//      } catch (InterruptedException e) {
+//        System.out.println("Message write interrupt exception: " + e);
+//      }
     }
     empty = false;
     this.message = message;
-    notifyAll();
+//    notifyAll();
   }
 }

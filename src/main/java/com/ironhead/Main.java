@@ -1,5 +1,6 @@
 package com.ironhead;
 
+import com.ironhead.constants.KeyWords;
 import com.ironhead.constants.ThreadColor;
 import com.ironhead.deadlocks_wait_notify.Message;
 import com.ironhead.deadlocks_wait_notify.Reader;
@@ -25,6 +26,8 @@ public class Main {
   public static void main(String[] args) {
 
     /*
+    // --------------------------------------------------------------------
+    // Runnable and Threads.
     System.out.println(mainColor + "We are in the " +
             Thread.currentThread().getName() + " thread.");
 
@@ -88,25 +91,28 @@ public class Main {
             Thread.currentThread().getName() + " thread");
      */
 
-    // --------------------------------------------------------------------
-    // Checking threads with variables.
-
     /*
+    // --------------------------------------------------------------------
+    // Threads variables.
     Countdown countdown = new Countdown();
 
     CountdownThread thread1 = new CountdownThread(countdown);
-    thread1.setName("Thread 1");
+    thread1.setName(KeyWords.THREAD_NAME_1);
     CountdownThread thread2 = new CountdownThread(countdown);
-    thread2.setName("Thread 2");
+    thread2.setName(KeyWords.THREAD_NAME_2);
+    CountdownThread thread3 = new CountdownThread(countdown);
+    thread3.setName(KeyWords.THREAD_NAME_3);
 
     thread1.start();
     thread2.start();
-
-
-    Message message = new Message();
-    (new Thread(new Writer(message))).start();
-    (new Thread(new Reader(message))).start();
+    thread3.start();
      */
+
+    // --------------------------------------------------------------------
+    // Deadlocks with notify.
+    Message message = new Message();
+//    (new Thread(new Writer(message))).start();
+//    (new Thread(new Reader(message))).start();
 
     /*
     // Producer and Consumer
